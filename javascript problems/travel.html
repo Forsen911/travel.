@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Travel</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+
+    <header>
+      <a href="#" class="brand">Travel</a>
+      <div class="menu-btn"></div>
+      <div class="navigation">
+        <div class="navigation-items">
+          <a href="#">Home</a>
+          <a href="#">About</a>
+          <a href="#">Explore</a>
+          <a href="#">Gallery</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="home">
+      <video class="slides" src="forest.mp4" autoplay muted loop></video>
+      <div class="content">
+        <h1>Wonderful.<br><span>Island</span></h1>
+        <p>Forsen911</p>
+        <a href="#">Read more</a>
+      </div>
+      <div class="media-icons">
+        <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+        <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+        <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+      </div>
+      <div class="slider-navigation">
+        <div class="nav-btn"></div>
+        <div class="nav-btn"></div>
+        <div class="nav-btn"></div>
+        <div class="nav-btn"></div>
+      </div>
+    </section>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script type="text/javascript">
+      //javascript of responsive navigation menu
+      const menuBtn = document.querySelector(".menu-btn");
+      const navigation = document.querySelector(".navigation");
+
+      menuBtn.addEventListener("click", () => {
+        menuBtn.classList.toggle("active");
+        navigation.classList.toggle("active");
+      })
+
+      //javascript for video slider navigation
+      const btns = document.querySelectorAll('.nav-btn');
+      const slides = document.querySelectorAll('.slides');
+
+      let sliderNav = function (manual){
+        btns.forEach((btn) => {
+          btn.classList.remove('active')
+        })
+
+        slides.forEach((slide) => {
+          slide.classList.remove('active')
+        })
+
+        btns[manual].classList.add('active');
+        slides[manual].classList.add('active');
+      }
+
+        btns.forEach((btn,i) => {
+          btn.addEventListener("click", () => {
+            sliderNav(i)
+          })
+        })
+
+        slides.forEach((slide,i) => {
+          slide.addEventListener("click", () => {
+            sliderNav(i)
+          })
+        })
+
+    </script>
+  </body>
+</html>
